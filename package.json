@@ -1,0 +1,16 @@
+{
+  "name": "fanh",
+  "version": "0.0.1",
+  "description": "Fluent and natty henchman",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha . -w"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  },
+  "author": "hoangph271",
+  "license": "ISC"
+}
