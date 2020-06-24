@@ -99,3 +99,22 @@ describe('Function helpers', () => {
     })
   })
 })
+
+describe('Timing helpers', () => {
+  const { delay } = fanh
+
+  it('Should returns a promise', () => {
+    expect(delay()).to.be.a('Promise')
+  })
+  it('Should wait for 10 ms', (done) => {
+    const start = Date.now()
+
+    delay(10).then(() => {
+      const delayed = Date.now() - start
+
+      expect(delayed).to.be.at.least(10)
+      done()
+    })
+  })
+
+})
