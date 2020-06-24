@@ -19,7 +19,13 @@ const invert = fn => {
   return (...args) => !fn(...args)
 }
 
+/**
+ * It just an empty function that takes nothing and does nothing
+ */
+const noOp = () => {}
+
 module.exports = {
   NOT,
+  noOp,
   invert,
 }

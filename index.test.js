@@ -43,7 +43,7 @@ describe('Boolean helpers', () => {
     })
   })
 
-  describe('invert', () => {
+  describe.only('invert', () => {
     const { invert } = fanh
 
     describe('With an invalid parameter', () => {
@@ -62,6 +62,40 @@ describe('Boolean helpers', () => {
       it('Should throws TypeError in case of NaN parameter', () => {
         expect(() => invert(NaN)).to.throw(TypeError)
       })
+    })
+    describe('With a valid parameter', () => {
+      const makeFalse = () => false
+      const makeTrue = () => true
+
+      it('Should return a function', () => {
+        const inverted = invert(makeFalse)
+        expect(inverted).to.be.a('function')
+      })
+      it('Should inverse logic function which returns false', () => {
+        const inverted = invert(makeFalse)
+        expect(inverted()).to.be.true
+      })
+      it('Should inverse logic function which returns true', () => {
+        const inverted = invert(makeTrue)
+        expect(inverted()).to.be.false
+      })
+      it('Should return the inverted value of the given function', () => {
+        expect(invert(makeFalse)()).to.equals(!makeFalse())
+        expect(invert(makeTrue)()).to.equals(!makeTrue())
+      })
+    })
+  })
+})
+
+describe('Function helpers', () => {
+  describe('noOp', () => {
+    const { noOp } = fanh
+
+    it('Its type should be function', () => {
+      expect(noOp).to.be.a('function')
+    })
+    it('It should just run and do nothing', () => {
+      expect(noOp()).to.be.undefined
     })
   })
 })
