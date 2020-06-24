@@ -1,6 +1,6 @@
 {
   "name": "fanh",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fluent and natty henchman",
   "main": "index.js",
   "scripts": {
