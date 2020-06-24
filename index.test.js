@@ -43,7 +43,7 @@ describe('Boolean helpers', () => {
     })
   })
 
-  describe.only('invert', () => {
+  describe('invert', () => {
     const { invert } = fanh
 
     describe('With an invalid parameter', () => {
