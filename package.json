@@ -11,5 +11,12 @@
     "mocha": "*"
   },
   "author": "hoangph271",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [
+    "fanh",
+    "dedupe",
+    "NOT",
+    "noOp",
+    "utilities"
+  ]
 }
