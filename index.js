@@ -46,7 +46,7 @@ const delay = ms => new Promise((resolve) => setTimeout(resolve, ms))
 const dedupe = items => [...new Set(items)]
 
 /**
- * Find a element which has field equal to value
+ * Find a element which has a field equal to given value
  * @param {Array} items array contains tarrget element
  * @param {string} field target field for comparition
  * @param {string} value string to compare against
