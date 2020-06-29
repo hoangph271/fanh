@@ -118,3 +118,34 @@ describe('Timing helpers', () => {
   })
 
 })
+
+describe('Array helpers', () => {
+  describe('dedupe', () => {
+    const { dedupe } = fanh
+
+    it('Should return an empty when passed an empty array', () => {
+      expect(dedupe([])).to.be.an('array').which.has.lengthOf(0)
+    })
+    it('Should return a different array from the original', () => {
+      const items = [1, 2, 3]
+      expect(dedupe(items)).to.not.be.equal(items)
+    })
+    it('Should return an array with length of 1 when passed an array of same elements', () => {
+      expect(dedupe([1, 1, 1, 1, 1, 1])).to.be.an('array').which.has.lengthOf(1)
+    })
+    it('Should return array with same elements when passed an array of empty objects', () => {
+      expect(dedupe([{}, {}, {}, {}, {}])).to.be.an('array').which.has.lengthOf(5)
+    })
+  })
+  describe('findBy', () => {
+    const { findBy } = fanh
+    const items = [{ name: '#0' }, { name: '#1' }, { name: '#2' }]
+
+    it('should return undefined if no item matches', () => {
+      expect(findBy(items, 'name', false)).to.be.undefined
+    })
+    it('should return first matched item', () => {
+      expect(findBy(items, 'name', '#1')).to.be.equal(items[1])
+    })
+  })
+})

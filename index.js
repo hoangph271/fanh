@@ -37,9 +37,28 @@ const noOp = () => {}
 const delay = ms => new Promise((resolve) => setTimeout(resolve, ms))
 //#endregion
 
+//#region Array helpers
+/**
+ * Create a new array without duplicated elements
+ * @param {Array} items array to deuplicate
+ * @return {Array}
+ */
+const dedupe = items => [...new Set(items)]
+
+/**
+ * Find a element which has field equal to value
+ * @param {Array} items array contains tarrget element
+ * @param {string} field target field for comparition
+ * @param {string} value string to compare against
+ */
+const findBy = (items, field, value) => items.find(item => item[field] === value)
+//#endregion
+
 module.exports = {
   NOT,
   noOp,
   delay,
   invert,
+  dedupe,
+  findBy,
 }
