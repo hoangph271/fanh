@@ -13,6 +13,14 @@ Yet another JS utility library...!
     // Do this...!
   }
   ```
+  - `AND` - Returns true if all arguments are true
+  ```js
+  const isNumber = AND(typeof val === 'number', val === val)
+  ```
+  - `OR` - Returns true if any of arguments is true
+  ```js
+  const isNil = OR(val === null, val === undefined)
+  ```
   - `invert` - Get the inverted version of the given function, useful for things like:  
   ```js
   const isNOTNumber = invert(isNumber)

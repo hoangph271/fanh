@@ -85,6 +85,70 @@ describe('Boolean helpers', () => {
       })
     })
   })
+
+  describe('AND', () => {
+    const { AND } = fanh
+
+    describe('Against all truthy values', () => {
+      it('AND(true) should returns true', () => expect(AND(true)).to.be.true)
+      it('AND(true, true) should returns true', () => expect(AND(true, true)).to.be.true)
+      it('AND(1, true) should returns true', () => expect(AND(1, true)).to.be.true)
+      it('AND(1, {}) should returns true', () => expect(AND(1, {})).to.be.true)
+      it('AND(1, []) should returns true', () => expect(AND(1, [])).to.be.true)
+    })
+
+    describe('Against all falsy values', () => {
+      it('AND(false) should returns false', () => expect(AND(false)).to.be.false)
+      it('AND(NaN) should returns false', () => expect(AND(NaN)).to.be.false)
+      it('AND(false, false) should returns false', () => expect(AND(false, false)).to.be.false)
+      it('AND(NaN, false) should returns false', () => expect(AND(NaN, false)).to.be.false)
+      it('AND(false, null) should returns false', () => expect(AND(false, null)).to.be.false)
+      it('AND(false, undefined) should returns false', () => expect(AND(false, undefined)).to.be.false)
+    })
+
+    describe('Against some truthy values', () => {
+      it('AND(false, true) should returns false', () => expect(AND(false, true)).to.be.false)
+      it('AND(false, {}) should returns false', () => expect(AND(false, {})).to.be.false)
+      it('AND(1, false) should returns false', () => expect(AND(1, false)).to.be.false)
+      it('AND(false, {}) should returns false', () => expect(AND(false, {})).to.be.false)
+      it('AND(false, []) should returns false', () => expect(AND(false, [])).to.be.false)
+      it('AND(NaN, []) should returns false', () => expect(AND(NaN, [])).to.be.false)
+      it('AND(null, []) should returns false', () => expect(AND(null, [])).to.be.false)
+      it('AND(undefined, []) should returns false', () => expect(AND(undefined, [])).to.be.false)
+    })
+  })
+
+  describe.only('OR', () => {
+    const { OR } = fanh
+
+    describe('Against all truthy values', () => {
+      it('OR(true) should returns true', () => expect(OR(true)).to.be.true)
+      it('OR(true, true) should returns true', () => expect(OR(true, true)).to.be.true)
+      it('OR(1, true) should returns true', () => expect(OR(1, true)).to.be.true)
+      it('OR(1, {}) should returns true', () => expect(OR(1, {})).to.be.true)
+      it('OR(1, []) should returns true', () => expect(OR(1, [])).to.be.true)
+    })
+
+    describe('Against all falsy values', () => {
+      it('OR(false) should returns false', () => expect(OR(false)).to.be.false)
+      it('OR(NaN) should returns false', () => expect(OR(NaN)).to.be.false)
+      it('OR(false, false) should returns false', () => expect(OR(false, false)).to.be.false)
+      it('OR(NaN, false) should returns false', () => expect(OR(NaN, false)).to.be.false)
+      it('OR(false, null) should returns false', () => expect(OR(false, null)).to.be.false)
+      it('OR(false, undefined) should returns false', () => expect(OR(false, undefined)).to.be.false)
+    })
+
+    describe('Against some truthy values', () => {
+      it('OR(false, true) should returns true', () => expect(OR(false, true)).to.be.true)
+      it('OR(false, {}) should returns true', () => expect(OR(false, {})).to.be.true)
+      it('OR(1, false) should returns true', () => expect(OR(1, false)).to.be.true)
+      it('OR(false, {}) should returns true', () => expect(OR(false, {})).to.be.true)
+      it('OR(false, []) should returns true', () => expect(OR(false, [])).to.be.true)
+      it('OR(NaN, []) should returns true', () => expect(OR(NaN, [])).to.be.true)
+      it('OR(null, []) should returns true', () => expect(OR(null, [])).to.be.true)
+      it('OR(undefined, []) should returns true', () => expect(OR(undefined, [])).to.be.true)
+    })
+  })
 })
 
 describe('Function helpers', () => {
